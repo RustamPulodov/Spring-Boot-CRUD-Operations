@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.v3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<title>Spring Boot Add New Student</title>
+</head>
+<body>
+	<div align="center">
+		<h2>Spring Boot Add New Student</h2>
+		</br>
+		<div class="col-sm-6 col-sm-offset-3 col-md-7 col-md-offset-2 main">
+			<form th:action="@{/save}" th:object="${student}" method="post">
+				<input type="hidden" th:field="*{id}"/>
+				<div class="form-group ">
+					<label class="control-label" for="title">Surname</label> 
+					<input type="text" th:field="*{surname}" class="form-control"
+								placeholder="Surname" required="required"/>
+
+				</div>
+				<div class="form-group ">
+					<label class="control-label" for="name">Name</label> 
+					<input type="text" th:field="*{name}" class="form-control"
+								placeholder="Name" required="required"/>
+
+				</div>
+				<div class="form-group ">
+					<label class="control-label" for="course">Course</label> 
+					<input type="text" th:field="*{course}" class="form-control"
+								placeholder="Course" required="required"/>
+
+				</div>
+				<div class="form-group ">
+					<label class="control-label" for="fees">Fees</label> 
+					<input type="text" th:field="*{fees}" class="form-control"
+								placeholder="Fees" required="required"/>
+
+				</div>
+				<button type="submit" class="btn btn-success">Add student</button>
+				<a class="btn btn-primary" th:href="@{'/'}">Back to main form</a>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

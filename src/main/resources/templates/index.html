@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.v3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+<script type="text/javascript" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<title>Spring Boot CRUD Operations</title>
+</head>
+<body>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h2>Spring Boot CRUD Operations</h2>
+	<tr>
+		<div align="center">
+			<h3><a class="btn btn-success" th:href="@{'/new'}">Add New Student</a></h3>
+		</div>
+	</tr>
+	<tr>
+		<div class="col-sm-9" align="center">
+			<div class="panel-body" align="center">
+				<table class="table">
+					<thead class="thead-dark" style="background-color: black; color: white;">
+						<tr>
+							<th>Student ID</th>
+							<th>Surname</th>
+							<th>Name</th>
+							<th>Course</th>
+							<th>Fees</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="student : ${liststudents}">
+							<td th:text="${student.id}">Student ID</td>
+							<td th:text="${student.surname}">Surname</td>
+							<td th:text="${student.name}">Name</td>
+							<td th:text="${student.course}">Course</td>
+							<td th:text="${student.fees}">Fees</td>
+							<td>
+								<a class="btn btn-primary" th:href="@{'/edit/' + ${student.id}}">Edit</a>
+							</td>
+							<td>
+								<a class="btn btn-danger" th:href="@{'/delete/' + ${student.id}}">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</tr>
+</div>
+</body>
+</html>
